@@ -14,6 +14,7 @@ export default function Doctors() {
   
   useEffect(() => {
     fetchData()
+
   },[])
 
   return (
