@@ -1,0 +1,28 @@
+.doctor-home {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.doctor-card {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    color: black;
+}
+.doctor-card span{
+    text-decoration: none;
+}
+
+.doctor-card img {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+}
