@@ -1,0 +1,29 @@
+.doctor-sch{
+    background-image: url("https://150107047.v2.pressablecdn.com/wp-content/uploads/2023/01/news-photo-template-2-7.jpg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 30px;
+    padding-left: 30px;
+}
+.button-group{
+    width: 80%;
+    max-width: 800px;
+    flex-wrap: wrap;
+}
+.button-group button{
+    /* border: none; */
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(64, 177, 74);
+    font-size: larger;
+    font-weight: bolder;
+}
+.button-group button:hover{
+    color: rgb(64, 177, 74);
+    background-color: white;
+}

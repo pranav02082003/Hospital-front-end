@@ -17,7 +17,12 @@ export default function Doctors() {
   }
 
   const changePage = (each) => {
-    navigate(`/doctors/${each._id}`)
+    if (each.Available) {
+      navigate(`/doctors/${each._id}`)
+    }else{
+      alert("Doctor not available")
+    }
+   
   }
   
   useEffect(() => {
@@ -28,10 +33,14 @@ export default function Doctors() {
   return (
     <div className='doctor-home'>
       {doctors.map((each)=> {
-        return <div className='doctor-card' key={each._id} onClick={() => changePage(each)}>
+        return <div className='doctor-card' key={each._id} >
           <img src={each.image} alt={each.name}/>
           <span>Name : {each.name}</span>
           <span>Desgnation : {each.Designation}</span>
+          <span>Fee : 100/-</span>
+          <span>Qualifications :</span>
+          {each.Available ? <span className='green-dot'></span> : <span className='red-dot'></span>}
+          <button className='Schedulestyle' onClick={() => changePage(each)}>View Schedules</button>
         </div>
       })}
     
