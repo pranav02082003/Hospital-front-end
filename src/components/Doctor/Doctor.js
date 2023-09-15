@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Doctor.css'
+import { Modal } from 'antd'
+import TextField from '@mui/material/TextField';
 
 export default function Doctor() {
 
@@ -21,6 +23,20 @@ export default function Doctor() {
 
     }).catch((err) => console.log(err))
   }
+  const handleModal = () => {
+    Modal.success({
+      content: <div>
+        <form>
+          <TextField type='text' id="standard-basic" label="Patient Name" variant="standard" />
+          <TextField type='number' id="standard-basic" label="Age" variant="standard" />
+          <TextField type='text' id="standard-basic" label="Problem" variant="standard" />
+        </form>
+      </div>,
+      centered: true,
+      maskClosable: true,
+      footer:null
+    })
+  }
 
   useEffect(() => {
     fetchData()
@@ -38,7 +54,7 @@ export default function Doctor() {
       <div className='d-flex gap-3 button-group'>
         {timings.map((eachtime) => {
           return <div key={eachtime.id}>
-            {eachtime.status ? <button>{eachtime.time}</button> : <button disabled>{eachtime.time}</button>}
+            {eachtime.status ? <button onClick={handleModal}>{eachtime.time}</button> : <button disabled>{eachtime.time}</button>}
           </div>
         })}
       </div>
