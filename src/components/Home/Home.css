@@ -7,7 +7,7 @@
     align-items: flex-start;
     justify-content: center;
     padding-left: 30px;
-    gap: 20px;
+    gap: 10px;
 }
 .home-button{
     background-color: rgb(64, 177, 74);
@@ -31,4 +31,8 @@
     color: rgb(64, 177, 74);
     padding: 10px;
     font-weight: bold;
+}
+.homepage .heading {
+    font-size: 40px;
+    font-weight:600;
 }
