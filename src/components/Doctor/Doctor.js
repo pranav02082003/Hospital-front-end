@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import './Doctor.css'
 import { Modal } from 'antd'
 import TextField from '@mui/material/TextField';
@@ -9,60 +9,26 @@ export default function Doctor() {
 
   const [data, setData] = useState([])
   const [timings, setTimings] = useState([])
-  const [name, setName] = useState("")
-  const [age, setAge] = useState('')
-  const [problem, setProblem] = useState('')
-  const [mobile, setMobile] = useState('')
-  const [error, setError] = useState('')
+  const [date, setDate] = useState("")
 
   const { id } = useParams()
+  const navigate = useNavigate()
 
   const fetchData = () => {
     axios.get('http://localhost:4000/data').then((res) => {
       const filter = res.data.filter((each) => each._id === id)
       setData(filter[0])
-      console.log(filter)
       setTimings(filter[0].DoctorTimings.sort((a, b) => a.id - b.id))
-
-
+      const currentDate = new Date().getDate()
+      const month = new Date().getMonth() + 1
+      const year = new Date().getFullYear()
+      setDate(currentDate + "-" + month + "-" + year)
     }).catch((err) => console.log(err))
   }
-
-  const handleMobile = (e) => {
-    setMobile(e.target.value)
-    if (e.target.value.length > 10 || e.target.value.length < 10) {
-      console.log("entter valid")
-      setError("Enter valid number")
-    } else {
-      setError("")
-    }
-  }
-  // console.log("mobile: " + mobile)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (mobile.length > 10 || mobile.length < 10) {
-      alert("enter valid mobile")
-    }
-  }
+  console.log(date)
 
   const handleModal = (time) => {
-    Modal.success({
-      content: <div>
-        <form className='d-flex flex-column gap-3' onSubmit={handleSubmit}>
-          <label>Time</label>
-          <input value={time} disabled className='form-control'/>
-          <TextField type='text' id="standard-basic" label="Patient Name" variant="standard" />
-          <TextField type='number' id="standard-basic" label="Age" variant="standard" />
-          <TextField type='text' id="standard-basic" label="Problem" variant="standard" />
-          <TextField type='tel' onChange={handleMobile} id="standard-basic" label="Mobile Number" variant="standard" />
-          <button type="Submit" className="btn btn-success">Submit</button>
-        </form>
-      </div>,
-      centered: true,
-      maskClosable: true,
-      footer: null
-    })
+    navigate(`/form/${date}/${time}`)
   }
 
   useEffect(() => {
@@ -74,7 +40,7 @@ export default function Doctor() {
       <div>
         <h1>Schedule your appointment</h1>
         <select>
-          <option disabled>Select</option>
+          <option hidden>Select</option>
           <option>Tomorrow</option>
         </select>
       </div>
