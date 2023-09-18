@@ -11,7 +11,6 @@ export default function Doctors() {
 
   const fetchData = () => {
     axios.get('http://localhost:4000/data').then((res) => {
-      console.log(res.data)
       setDoctors(res.data)
     }).catch((err) => console.log(err))
   }

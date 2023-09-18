@@ -1,0 +1,15 @@
+.form-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://150107047.v2.pressablecdn.com/wp-content/uploads/2023/01/news-photo-template-2-7.jpg");
+    background-size: cover;
+}
+.form-card{
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
