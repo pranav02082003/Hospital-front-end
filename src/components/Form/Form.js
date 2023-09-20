@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Form.css'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 export default function Form() {
 
@@ -11,35 +12,42 @@ export default function Form() {
     const [problem, setProblem] = useState('')
     const [mobile, setMobile] = useState('')
     const [error, setError] = useState('')
-    const [success,setSuccess] = useState('')
+    const [success, setSuccess] = useState('')
 
     const { time, date } = useParams()
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        const activeDoctor = Cookies.get("active_doctor")
+
         const postData = {
-            name,
-            age,
-            problem,
-            mobile,
-            time,
-            date
+            id: activeDoctor,
+            data: {
+                name,
+                age,
+                problem,
+                mobile,
+                time,
+                date
+            }
+
         }
-        
-        if (name === "" || age === "" || problem === "" ) {
+
+        if (name === "" || age === "" || problem === "") {
             setError("All fields are required")
-        }else{
+        } else {
             if (mobile.length > 10 || mobile.length < 10) {
                 setError("enter valid mobile")
             } else {
                 setError("")
-                axios.post("http://localhost:4000/appointments",postData).then((res) => {
+                axios.post("http://localhost:4000/appointments", postData).then((res) => {
                     console.log(res)
-                    if(res.status === 200){
-                        setSuccess(res.data.message)
+                    if (res.status === 200) {
+                        alert("Booked Successfully")
                     }
                 })
+                    .catch((err) => console.log(err))
             }
         }
     }

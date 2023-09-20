@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import './Doctors.css'
 import {useNavigate} from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 export default function Doctors() {
 
@@ -18,6 +19,7 @@ export default function Doctors() {
   const changePage = (each) => {
     if (each.Available) {
       navigate(`/doctors/${each._id}`)
+      Cookies.set("active_doctor",each._id)
     }else{
       alert("Doctor not available")
     }

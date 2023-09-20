@@ -13,7 +13,7 @@
     max-width: 800px;
     flex-wrap: wrap;
 }
-.button-group button{
+.button-group .button-active{
     /* border: none; */
     width: 200px;
     height: 50px;
@@ -23,7 +23,16 @@
     font-size: larger;
     font-weight: bolder;
 }
-.button-group button:hover{
+.button-group .button-active:hover{
     color: rgb(64, 177, 74);
     background-color: white;
+}
+.button-group .button-disabled{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    background-color: grey;
+    font-size: larger;
+    font-weight: bolder;
 }
