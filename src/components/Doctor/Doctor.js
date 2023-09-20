@@ -4,12 +4,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 import './Doctor.css'
 import { Modal } from 'antd'
 import TextField from '@mui/material/TextField';
+import Cookies from 'js-cookie'
 
 export default function Doctor() {
 
   const [data, setData] = useState([])
   const [timings, setTimings] = useState([])
   const [date, setDate] = useState("")
+  const [select,setSelect] = useState("")
 
   const { id } = useParams()
   const navigate = useNavigate()
@@ -19,7 +21,7 @@ export default function Doctor() {
       const filter = res.data.filter((each) => each._id === id)
       setData(filter[0])
       setTimings(filter[0].DoctorTimings.sort((a, b) => a.id - b.id))
-      const currentDate = new Date().getDate()
+      const currentDate = new Date().getDate() + 1
       const month = new Date().getMonth() + 1
       const year = new Date().getFullYear()
       setDate(currentDate + "-" + month + "-" + year)
@@ -39,18 +41,18 @@ export default function Doctor() {
     <div className='doctor-sch'>
       <div>
         <h1>Schedule your appointment</h1>
-        <select>
-          <option hidden>Select</option>
-          <option>Tomorrow</option>
+        <select onChange={(e) => setSelect(e.target.value)}>
+          <option value={""}>Select</option>
+          <option value={"tomorrow"}>Tomorrow</option>
         </select>
       </div>
-      <div className='d-flex gap-3 button-group'>
+    {select !== "" && <div className='d-flex gap-3 button-group'>
         {timings.map((eachtime) => {
           return <div key={eachtime.id}>
-            {eachtime.status ? <button onClick={() => handleModal(eachtime.time)}>{eachtime.time}</button> : <button disabled>{eachtime.time}</button>}
+            {eachtime.status ? <button className='button-active' onClick={() => handleModal(eachtime.time)}>{eachtime.time}</button> : <button className='button-disabled' disabled>{eachtime.time}</button>}
           </div>
         })}
-      </div>
+      </div>}
     </div>
   )
 }
