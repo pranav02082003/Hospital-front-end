@@ -1,0 +1,20 @@
+.Login-edit{
+    background-image: url("https://img.freepik.com/free-photo/authentication-standing-physician-stylish-icons_1134-904.jpg?w=826&t=st=1695308467~exp=1695309067~hmac=528bfd6a460a22dd852342de692a865fb23f81a5774eeb6593575ed8a8f11a9c");
+    background-size: cover;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+    gap: 25px;
+    font-family: cursive;
+}

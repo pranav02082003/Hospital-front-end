@@ -20,6 +20,20 @@
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
 }
+.login-button{
+    background-color: rgb(64, 177, 74);
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 .medical{
     background-color:rgb(64, 177, 74);
     color: white;
