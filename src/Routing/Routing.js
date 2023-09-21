@@ -3,15 +3,17 @@ import Home from '../components/Home/Home'
 import Doctors from '../components/Doctors/Doctors'
 import Doctor from '../components/Doctor/Doctor'
 import Form from '../components/Form/Form'
+import Login from '../components/Login/Login'
 
 export default function Routing(){
     return (
         <>
         <Routes>
-            <Route exact path='/' element={<Home/>}/>
-            <Route exact path='/doctors' element={<Doctors/>}/>
-            <Route exact path='/doctors/:id' element={<Doctor/>}/>
-            <Route exact path='/form/:date/:time' element={<Form/>}/>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/doctors' element={<Doctors/>}/>
+            <Route path='/doctors/:id' element={<Doctor/>}/>
+            <Route path='/form/:date/:time' element={<Form/>}/>
+            <Route path='/login' element={<Login/>}/>
         </Routes>
         </>
     )
