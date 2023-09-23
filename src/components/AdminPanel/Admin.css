@@ -1,0 +1,57 @@
+.doctor-home1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.doctor-card1 {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    color: black;
+    position: relative;
+}
+.doctor-card1 span{
+    text-decoration: none;
+}
+
+.doctor-card1 img {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+}
+.Schedulestyle1 {
+    background-color: rgb(64, 177, 74);
+    color: white;
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+}
+.red-dot1{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.green-dot1{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(64, 177, 74);
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
