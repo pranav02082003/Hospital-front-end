@@ -11,7 +11,7 @@ export default function Doctors() {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    axios.get('http://localhost:4000/data').then((res) => {
+    axios.get('https://hospitalmanagement-zkc1.onrender.com/data').then((res) => {
       setDoctors(res.data)
     }).catch((err) => console.log(err))
   }

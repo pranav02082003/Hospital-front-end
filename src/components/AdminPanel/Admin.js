@@ -14,7 +14,7 @@ export default function Admin() {
                     availability:!each.Available,
                     id:id
                 }
-                axios.put('http://localhost:4000/change_availability',data).then((res) => {
+                axios.put('https://hospitalmanagement-zkc1.onrender.com/change_availability',data).then((res) => {
                     alert(res.data)
                 }).catch((err) => console.log(err))
                 return { ...each, Available: !each.Available }
@@ -26,7 +26,7 @@ export default function Admin() {
 
 
     const fetchData = () => {
-        axios.get('http://localhost:4000/data').then((res) => {
+        axios.get('https://hospitalmanagement-zkc1.onrender.com/data').then((res) => {
             setDoctors(res.data)
             console.log(res.data)
         }).catch((err) => console.log(err))

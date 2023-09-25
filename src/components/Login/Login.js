@@ -27,7 +27,7 @@ export default function Login() {
             username,
             password
         }
-        axios.post("http://localhost:4000/login",data).then((res) => {
+        axios.post("https://hospitalmanagement-zkc1.onrender.com/login",data).then((res) => {
             console.log(res)
             if (res.data.token) {
                 const {token} = res.data

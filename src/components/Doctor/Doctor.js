@@ -17,7 +17,7 @@ export default function Doctor() {
   const navigate = useNavigate()
 
   const fetchData = () => {
-    axios.get('http://localhost:4000/data').then((res) => {
+    axios.get('https://hospitalmanagement-zkc1.onrender.com/data').then((res) => {
       const filter = res.data.filter((each) => each._id === id)
       setData(filter[0])
       setTimings(filter[0].DoctorTimings.sort((a, b) => a.id - b.id))
