@@ -41,7 +41,7 @@ export default function Form() {
                 setError("enter valid mobile")
             } else {
                 setError("")
-                axios.post("http://localhost:4000/appointments", postData).then((res) => {
+                axios.post("https://hospitalmanagement-zkc1.onrender.com/appointments", postData).then((res) => {
                     console.log(res)
                     if (res.status === 200) {
                         alert("Booked Successfully")
