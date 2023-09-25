@@ -2,9 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './Doctor.css'
-import { Modal } from 'antd'
-import TextField from '@mui/material/TextField';
-import Cookies from 'js-cookie'
+import { baseUrl } from '../../url'
 
 export default function Doctor() {
 
@@ -17,7 +15,7 @@ export default function Doctor() {
   const navigate = useNavigate()
 
   const fetchData = () => {
-    axios.get('https://hospitalmanagement-zkc1.onrender.com/data').then((res) => {
+    axios.get(`${baseUrl}/data`).then((res) => {
       const filter = res.data.filter((each) => each._id === id)
       setData(filter[0])
       setTimings(filter[0].DoctorTimings.sort((a, b) => a.id - b.id))

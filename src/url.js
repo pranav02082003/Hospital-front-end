@@ -1,0 +1,1 @@
+export const baseUrl = "https://hospitalmanagement-zkc1.onrender.com"

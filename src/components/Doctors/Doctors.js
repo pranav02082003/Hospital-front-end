@@ -3,6 +3,7 @@ import axios from 'axios'
 import './Doctors.css'
 import {useNavigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import { baseUrl } from '../../url'
 
 export default function Doctors() {
 
@@ -11,7 +12,7 @@ export default function Doctors() {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    axios.get('https://hospitalmanagement-zkc1.onrender.com/data').then((res) => {
+    axios.get(`${baseUrl}/data`).then((res) => {
       setDoctors(res.data)
     }).catch((err) => console.log(err))
   }

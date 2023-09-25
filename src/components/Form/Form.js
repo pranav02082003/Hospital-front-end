@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import './Form.css'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { baseUrl } from '../../url'
 
 export default function Form() {
 
@@ -41,7 +42,7 @@ export default function Form() {
                 setError("enter valid mobile")
             } else {
                 setError("")
-                axios.post("https://hospitalmanagement-zkc1.onrender.com/appointments", postData).then((res) => {
+                axios.post(`${baseUrl}/appointments`, postData).then((res) => {
                     console.log(res)
                     if (res.status === 200) {
                         alert("Booked Successfully")

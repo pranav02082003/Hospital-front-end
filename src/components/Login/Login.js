@@ -6,6 +6,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
+import { baseUrl } from '../../url';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -27,7 +28,7 @@ export default function Login() {
             username,
             password
         }
-        axios.post("https://hospitalmanagement-zkc1.onrender.com/login",data).then((res) => {
+        axios.post(`${baseUrl}/login`,data).then((res) => {
             console.log(res)
             if (res.data.token) {
                 const {token} = res.data

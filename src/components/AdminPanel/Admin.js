@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Admin.css'
+import { baseUrl } from '../../url'
 
 export default function Admin() {
 
@@ -14,7 +15,7 @@ export default function Admin() {
                     availability:!each.Available,
                     id:id
                 }
-                axios.put('https://hospitalmanagement-zkc1.onrender.com/change_availability',data).then((res) => {
+                axios.put(`${baseUrl}/change_availability`,data).then((res) => {
                     alert(res.data)
                 }).catch((err) => console.log(err))
                 return { ...each, Available: !each.Available }
@@ -26,7 +27,7 @@ export default function Admin() {
 
 
     const fetchData = () => {
-        axios.get('https://hospitalmanagement-zkc1.onrender.com/data').then((res) => {
+        axios.get(`${baseUrl}/data`).then((res) => {
             setDoctors(res.data)
             console.log(res.data)
         }).catch((err) => console.log(err))
