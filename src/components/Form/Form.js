@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams,useNavigate } from 'react-router-dom'
 import './Form.css'
 import axios from 'axios'
 import Cookies from 'js-cookie'
@@ -16,6 +16,7 @@ export default function Form() {
     const [success, setSuccess] = useState('')
 
     const { time, date } = useParams()
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -46,6 +47,7 @@ export default function Form() {
                     console.log(res)
                     if (res.status === 200) {
                         alert("Booked Successfully")
+                        navigate('/')
                     }
                 })
                     .catch((err) => console.log(err))
