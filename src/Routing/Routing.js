@@ -5,6 +5,7 @@ import Doctor from '../components/Doctor/Doctor'
 import Form from '../components/Form/Form'
 import Login from '../components/Login/Login'
 import Admin from '../components/AdminPanel/Admin'
+import Adminschedules from '../components/AdminSchedules/Adminschedules'
 
 export default function Routing(){
     return (
@@ -16,6 +17,7 @@ export default function Routing(){
             <Route path='/form/:date/:time' element={<Form/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/admin' element={<Admin/>}/>
+            <Route path='/adminschedules/:id' element={<Adminschedules/>}/>
         </Routes>
         </>
     )

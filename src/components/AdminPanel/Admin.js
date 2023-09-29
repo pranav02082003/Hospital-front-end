@@ -31,6 +31,10 @@ export default function Admin() {
         }))
     }
 
+    const handleClick = (id) => {
+        navigate(`/adminschedules/${id}`)
+    }
+
 
     const fetchData = () => {
         axios.get(`${baseUrl}/data`).then((res) => {
@@ -49,6 +53,7 @@ export default function Admin() {
         }
         fetchData()
     }, [])
+
 
     console.log(appointment)
 
@@ -69,7 +74,7 @@ export default function Admin() {
                             <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked={each.Available} onChange={() => handleStatus(each._id)} />
                         </div></span>
                         {each.Available ? <span className='green-dot1'></span> : <span className='red-dot1'></span>}
-                        <button className='Schedulestyle1'>View Schedules</button>
+                        <button className='Schedulestyle1' onClick={() => handleClick(each._id)}>View Schedules</button>
                     </div>
                 })}
 
@@ -77,12 +82,12 @@ export default function Admin() {
             <div className='d-flex justify-content-center mt-5 mb-5'>
                 {status ? <button className='btn btn-danger' onClick={() => setStatus(false)}>Close Appointments</button> : <button className='btn btn-success' onClick={() => setStatus(true)}>View Appointments</button>}
             </div>
-            {status &&<div className='d-flex flex-column align-items-center flex-wrap gap-3 text-center'>
+            {status && <div className='d-flex flex-column align-items-center flex-wrap gap-3 text-center'>
                 {appointment.map((each) => {
                     return <div className='doctors-cards'>
                         <h1> Doctor name : {each.doctor}</h1>
                         {console.log(each)}
-                        {each.appointments.length > 0 ? 
+                        {each.appointments.length > 0 ?
                             <div className='d-flex justify-content-center gap-5'>
                                 {each.appointments.map((eachtime) => {
                                     return <div className='appointemnt-card'>
@@ -91,13 +96,17 @@ export default function Admin() {
                                         <p><b>Patient problem :</b>{eachtime.problem}</p>
                                         <p><b>Patient mobile :</b> {eachtime.mobile}</p>
                                         <p><b>Time :</b> {eachtime.time}</p>
-                                        <div><button className='btn btn-success'>completed</button></div>
+                                        <p><b>Date :</b> {eachtime.date}</p>
                                     </div>
                                 })}
+
                             </div> : <div>No Appointments...</div>
                         }
                     </div>
+                    
+
                 })}
+                
             </div>}
         </div>
     )
