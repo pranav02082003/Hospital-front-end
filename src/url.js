@@ -1,1 +1,1 @@
-export const baseUrl = "hhttps://hospitalmanagement-z1dm.onrender.com/"
+export const baseUrl = "hhttps://hospitalmanagement-z1dm.onrender.com"
