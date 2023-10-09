@@ -39,8 +39,7 @@ export default function Doctors() {
           <img src={each.image} alt={each.name}/>
           <span>Name : {each.name}</span>
           <span>Desgnation : {each.Designation}</span>
-          <span>Fee : 100/-</span>
-          <span>Qualifications :</span>
+          <span>Qualifications : MBBS</span>
           {each.Available ? <span className='green-dot'></span> : <span className='red-dot'></span>}
           <button className='Schedulestyle' onClick={() => changePage(each)}>View Schedules</button>
         </div>
